@@ -78,7 +78,7 @@ AdminTools.multiView = {
       <ul>
         <li><a class="icon-home" href="{$ato.U_SITE_ADMIN}intro">{'Home'|translate}</a></li>
         <li><a class="icon-picture" href="{$ato.U_SITE_ADMIN}batch_manager">{'Photos'|translate}</a></li>
-        <li><a class="icon-sitemap" href="{$ato.U_SITE_ADMIN}cat_list">{'Albums'|translate}</a></li>
+        <li><a class="icon-sitemap" href="{$ato.U_SITE_ADMIN}albums">{'Albums'|translate}</a></li>
         <li><a class="icon-users" href="{$ato.U_SITE_ADMIN}user_list">{'Users'|translate}</a></li>
         <li><a class="icon-puzzle" href="{$ato.U_SITE_ADMIN}plugins">{'Plugins'|translate}</a></li>
         <li><a class="icon-wrench" href="{$ato.U_SITE_ADMIN}maintenance">{'Tools'|translate}</a></li>
@@ -106,7 +106,7 @@ AdminTools.multiView = {
     <li {if $ato.IS_REPRESENTATIVE}class="disabled"{/if}><a class="icon-ato-trophy set-representative ato-min-2" href="{$ato.U_SET_REPRESENTATIVE}">{'representative'|translate|ucfirst}</a></li>
   {/if}
   {if isset($ato.U_CADDIE)}
-    <li {if $ato.IS_IN_CADDIE}class="disabled"{/if}><a class="icon-flag add-caddie ato-min-2" href="{$ato.U_CADDIE}">{'Add to caddie'|translate}</a></li>
+    <li {if isset($ato.IS_IN_CADDIE) and $ato.IS_IN_CADDIE }class="disabled"{/if}><a class="icon-flag add-caddie ato-min-2" href="{$ato.U_CADDIE}">{'Add to caddie'|translate}</a></li>
   {/if}
   {if isset($ato.IS_CATEGORY)}
     <li><a class="icon-plus-circled ato-min-2" href="{$ato.U_SITE_ADMIN}photos_add&amp;album={$ato.CATEGORY_ID}">{'Add Photos'|translate}</a></li>
@@ -159,7 +159,7 @@ AdminTools.multiView = {
 
       {if isset($ato.IS_PICTURE)}
         <label for="quick_edit_author">{'Author'|translate}</label>
-        <input type="text" name="author" id="quick_edit_author" value="{$ato.QUICK_EDIT.author|escape:html}">
+        <input type="text" name="author" id="quick_edit_author" {if isset($ato.QUICK_EDIT.author)} value="{$ato.QUICK_EDIT.author|escape:html}" {/if}>
 
         <label for="quick_edit_date_creation">{'Creation date'|translate}</label>
         <input type="text" name="date_creation" id="quick_edit_date_creation" class="datepicker" value="{$ato.QUICK_EDIT.date_creation}">
