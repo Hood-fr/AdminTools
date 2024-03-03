@@ -115,7 +115,7 @@ SELECT id, name
       'author' =>             $picture['current']['author'],
       'level' =>              $picture['current']['level'],
       'date_creation' =>      substr($picture['current']['date_creation'], 0, 10),
-      'date_creation_time' => substr($picture['current']['date_creation'], 11, 5),
+      'date_creation_time' => substr($picture['current']['date_creation'], 11, 8),
       'tag_selection' =>      $tag_selection,
       );
   }
@@ -164,6 +164,7 @@ SELECT * FROM '.IMAGES_TABLE.'
   $template->assign(array(
     'ADMINTOOLS_PATH' => './plugins/' . ADMINTOOLS_ID .'/',
     'ato' => $tpl_vars,
+    'PWG_TOKEN' => get_pwg_token(),
   ));
 
   $template->set_filename('ato_public_controller', realpath(ADMINTOOLS_PATH . 'template/public_controller.tpl'));
@@ -297,9 +298,11 @@ function admintools_save_picture()
   {
     include_once(PHPWG_ROOT_PATH . 'admin/include/functions.php');
 
+    check_pwg_token();
+
     $data = array(
-      'name' =>   $_POST['name'],
-      'author' => $_POST['author'],
+      'name' =>   (is_admin() and $conf['allow_html_descriptions']) ? $_POST['name'] : strip_tags($_POST['name']),
+      'author' => (is_admin() and $conf['allow_html_descriptions']) ? $_POST['author'] : strip_tags($_POST['author']),
       );
 
     if ($MultiView->is_admin())
@@ -307,7 +310,7 @@ function admintools_save_picture()
       $data['level'] = $_POST['level'];
     }
 
-    if ($conf['allow_html_descriptions'])
+    if (is_admin() and $conf['allow_html_descriptions'])
     {
       $data['comment'] = @$_POST['comment'];
     }
@@ -351,11 +354,13 @@ function admintools_save_category()
 
   if (@$_POST['action'] == 'quick_edit')
   {
+    check_pwg_token();
+
     $data = array(
-      'name' => $_POST['name'],
+      'name' => (is_admin() and $conf['allow_html_descriptions']) ? $_POST['name'] : strip_tags($_POST['name']),
       );
 
-    if ($conf['allow_html_descriptions'])
+    if (is_admin() and $conf['allow_html_descriptions'])
     {
       $data['comment'] = @$_POST['comment'];
     }

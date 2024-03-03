@@ -45,7 +45,7 @@ AdminTools.multiView = {
 };
 {/if}
 
-{if $ato.DELETE_CACHE}
+{if isset($ato.DELETE_CACHE) and $ato.DELETE_CACHE}
   AdminTools.deleteCache();
 {/if}
   AdminTools.init({intval($ato.DEFAULT_OPEN)});
@@ -149,6 +149,7 @@ AdminTools.multiView = {
     <form method="post" action="{$ato.U_SELF}">
       <fieldset class="left">
         {if isset($ato.QUICK_EDIT.img)}<img src="{$ato.QUICK_EDIT.img}" width="100" height="100">{/if}
+        <input type="hidden" name="pwg_token" value="{$PWG_TOKEN}">
         <input type="submit" value="{'Save'|translate}">
         <a href="#" class="icon-ato-cancel close-edit">{'Cancel'|translate}</a>
       </fieldset>
