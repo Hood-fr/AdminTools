@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Admin Tools
-Version: 14.3.0
+Version: 15.0.0
 Description: Do some admin task from the public pages
-Plugin URI: http://piwigo.org/ext/extension_view.php?eid=720
+Plugin URI: https://piwigo.org/ext/extension_view.php?eid=720
 Author: Piwigo team
 Author URI: http://piwigo.org
 Has Settings: webmaster
