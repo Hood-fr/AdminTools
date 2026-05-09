@@ -20,12 +20,12 @@
 // | Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, |
 // | USA.                                                                  |
 // +-----------------------------------------------------------------------+
-$lang['Combine JS&CSS'] = 'JS&amp;CSS 합치기';
-$lang['Debug languages'] = '언어 디버그하기';
-$lang['Debug template'] = '템플릿 디버그하기';
-$lang['Give access to quick edit to photo owners even if they are not admin'] = '사진 소유자에게 관리자가 아니더라도 빠른 편집 권한을 줍니다.';
+$lang['Combine JS&CSS'] = 'JS&amp;CSS 병합';
+$lang['Debug languages'] = '언어 디버깅';
+$lang['Debug template'] = '템플릿 디버깅';
+$lang['Give access to quick edit to photo owners even if they are not admin'] = '관리자가 아니더라도 사진 소유자에게 빠른 편집 기능에 대한 접근 권한을 부여합니다';
 $lang['Save visit in history'] = '방문기록 저장하기';
-$lang['Open toolbar by default'] = '기본으로 툴바 열기';
+$lang['Open toolbar by default'] = '기본 메뉴 바 열기';
 $lang['Properties page'] = '속성 페이지';
 $lang['Quick edit'] = '빠른 편집';
 $lang['Revert'] = '되돌리기';
@@ -34,6 +34,6 @@ $lang['Saved'] = '저장됨';
 $lang['Show SQL queries'] = 'SQL 쿼리 보기';
 $lang['left'] = '왼쪽';
 $lang['right'] = '오른쪽';
-$lang['Closed icon position'] = '닫음 아이콘 위치';
+$lang['Closed icon position'] = '닫기 아이콘 위치';
 $lang['View as'] = '보기방식';
 $lang['Viewing as <b>%s</b>.'] = '<b>%s</b> 방식으로 보기';
